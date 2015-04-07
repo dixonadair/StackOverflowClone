@@ -1,0 +1,12 @@
+<%= form_for @answer do |f| %>
+  <p>
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <%= f.submit "Submit an answer" %>
+  </p>
+<% end %>

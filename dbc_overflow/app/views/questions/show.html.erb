@@ -1,0 +1,25 @@
+<h2>Question</h2>
+
+<p>
+  <strong>Title:</strong>
+  <%= @question.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @question.content %>
+</p>
+
+<h2>Answers</h2>
+
+<h3>Add an answer</h3>
+<!-- <%= #render 'answers/form' %> -->
+
+<% @question.answers.each do |answer|%>
+  <strong>Answer <%= answer.id %></strong>. <%= answer.title %><br>
+
+  <p>
+  <strong>=></strong>
+    <%= answer.content %>
+  </p>
+<% end %>
