@@ -9,7 +9,21 @@
 </p>
 
 <h2>Answers</h2>
+
+<p>-----------------</p>
+
 <% @question.answers.each do |answer| %>
+
+  <tr>
+    <td><%= link_to 'Upvote', upvote_question_answer_path(answer.question_id, answer.id), method: 'patch' %></td>
+    <td><%= link_to 'Downvote', downvote_question_answer_path(answer.question_id, answer.id), method: 'patch' %></td>
+  </tr>
+
+  <p>
+    <strong>Votecount:</strong>
+    <%= answer.votecount %>
+  </p>
+
   <p>
     <strong>Answerer:</strong>
     <%= answer.answerer %>
@@ -24,6 +38,8 @@
     <strong>Content:</strong>
     <%= answer.content %>
   </p>
+
+  <p>-----------------</p>
 <% end %>
 
 <%= render 'answers/new' %>

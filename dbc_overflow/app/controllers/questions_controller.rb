@@ -25,6 +25,20 @@ class QuestionsController < ApplicationController
     end
   end
 
+  def upvote
+    @question = Question.find(params[:id])
+    @question.votecount+=1
+    @question.save
+    redirect_to questions_path
+  end
+
+  def downvote
+    @question = Question.find(params[:id])
+    @question.votecount-=1
+    @question.save
+    redirect_to questions_path
+  end
+
   def create
     # render plain: params[:question].inspect # this is a debugging tool
     @question = Question.new(question_params)

@@ -8,6 +8,22 @@ class AnswersController < ApplicationController
   def new
   end
 
+  def upvote
+    @question = Question.where(id: params[:question_id]).first
+    @answer = Answer.where(id: params[:id]).first
+    @answer.votecount+=1
+    @answer.save
+    redirect_to "/questions/#{@question.id}"
+  end
+
+  def downvote
+    @question = Question.where(id: params[:question_id]).first
+    @answer = Answer.where(id: params[:id]).first
+    @answer.votecount-=1
+    @answer.save
+    redirect_to "/questions/#{@question.id}"
+  end
+
   private
     def answer_params
       params.require(:answer).permit(:answerer, :title, :content)
