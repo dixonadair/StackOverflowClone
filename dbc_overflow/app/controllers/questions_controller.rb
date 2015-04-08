@@ -1,6 +1,8 @@
 class QuestionsController < ApplicationController
+
   def index
     @questions = Question.all
+    @response = HTTParty.get('https://api.github.com/zen')
   end
 
   def new
