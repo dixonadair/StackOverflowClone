@@ -14,3 +14,16 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $(".question td:nth-child(1)").on('click', function(e) {
+    e.preventDefault();
+    var url = this.first().attr('href');
+    $.ajax({
+      url: url,
+      type: 'GET'
+    }).done(function(response) {
+      console.log(response);
+    }); //done done
+  }); // click done
+}); //ready done
