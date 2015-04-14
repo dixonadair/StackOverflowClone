@@ -15,16 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function(){
-  $(".question td:nth-child(1)").on('click', function(event) {
-    event.preventDefault();
-    var url = this.first().attr('href');
-    var ajaxRequest = $.ajax({
-      url: url,
-      type: 'GET'
-    });
-    ajaxRequest.done(function(response) {
-      console.log(response);
-    }); //done done
-  }); // click done
-}); //ready done

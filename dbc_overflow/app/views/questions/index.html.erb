@@ -14,11 +14,12 @@
     <th>Text</th>
   </tr>
 
-  <% @questions.each do |question| %>
+  <% @questions.each do |que
     <tr class="question">
-      <td><%= link_to 'Upvote', upvote_question_path(question), method: 'patch' %></td>
-      <td><%= link_to 'Downvote', downvote_question_path(question), method: 'patch' %></td>
-      <td><%= question.votecount %></td>
+      <td class="upvote"><%= link_to 'Upvote', upvote_question_path(question) %></td>
+      <td class="downvote"><%= link_to 'Downvote', downvote_question_path(question) %></td>
+      <
+      ><%= question.votecount %></td>
       <td><%= question.title %></td>
       <td><%= question.content %></td>
       <td><%= link_to 'Show', question_path(question) %></td>
@@ -29,3 +30,4 @@
     </tr>
   <% end %>
 </table>
+

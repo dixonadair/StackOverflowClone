@@ -29,16 +29,16 @@ class QuestionsController < ApplicationController
 
   def upvote
     @question = Question.find(params[:id])
-    @question.votecount+=1
+    @question.votecount += params[:amount].to_i
     @question.save
-    redirect_to questions_path
+    # @question.increment! :votecount
+    render json: { votecount: @question.votecount, qs_id: @question.id }
   end
 
   def downvote
     @question = Question.find(params[:id])
-    @question.votecount-=1
-    @question.save
-    redirect_to questions_path
+    @question.decrement! :votecount
+    render json: { votecount: @question.votecount, qs_id: @question.id }
   end
 
   def create
