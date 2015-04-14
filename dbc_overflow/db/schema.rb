@@ -19,14 +19,19 @@ ActiveRecord::Schema.define(version: 20150406225254) do
   create_table "answers", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.string   "answerer"
+    t.integer  "votecount",   default: 0
     t.integer  "question_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
   create_table "questions", force: true do |t|
     t.string   "title"
     t.text     "content"
+    t.integer  "votecount",  default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end
